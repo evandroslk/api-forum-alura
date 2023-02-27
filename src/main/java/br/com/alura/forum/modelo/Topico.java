@@ -26,7 +26,7 @@ public class Topico {
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 
 	@Enumerated(EnumType.STRING)
-	private StatusTopico statusTopico = StatusTopico.NAO_RESPONDIDO;
+	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 
 	@ManyToOne
 	private Usuario autor;
@@ -36,16 +36,6 @@ public class Topico {
 
 	@OneToMany(mappedBy = "topico")
 	private List<Resposta> respostas = new ArrayList<>();
-
-	public Topico() {
-
-	}
-
-	public Topico(String titulo, String mensagem, Curso curso) {
-		this.titulo = titulo;
-		this.mensagem = mensagem;
-		this.curso = curso;
-	}
 
 	public Long getId() {
 		return id;
@@ -79,12 +69,12 @@ public class Topico {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public StatusTopico getStatusTopico() {
-		return statusTopico;
+	public StatusTopico getStatus() {
+		return status;
 	}
 
-	public void setStatusTopico(StatusTopico statusTopico) {
-		this.statusTopico = statusTopico;
+	public void setStatus(StatusTopico status) {
+		this.status = status;
 	}
 
 	public Usuario getAutor() {
